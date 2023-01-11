@@ -1,6 +1,4 @@
-# aws-developer-cert
-
-AWS Certifier Developer - Associate
+# AWS Certifier Developer - Associate
 
 It cover AWS Products:
 - Compute
@@ -28,7 +26,7 @@ It cover AWS Products:
         - Route 53
 - Security, Identity & Compliance
     - Important services:
-        - AWS IAM
+        - [IAM](IAM.md)
 - Management & Governance
     - Important services:
         - CloudWatch
