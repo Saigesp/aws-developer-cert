@@ -9,7 +9,6 @@ Enables you to manage the access to AWS services and resources
 - It works creating and configuring Resources, IAM Users, IAM Groups, IAM Roles, IAM Permissions and IAM Policies.
 - IAM is a Global Service
 
-
 ## Best practices
 
 - Lock your AWS root user access keys
@@ -40,7 +39,7 @@ Access type:
 
 JSON stored control policies
 
-Types:
+#### Types:
 - Identity Based Policies: Can be attached to a principal (user, group, role)
     - Managed Policies (AWS MAnaged, Customer Managed)
     - Inline Policies
@@ -64,7 +63,7 @@ Policy JSON format example:
 }
 ```
 
-> Policy Evaluation Logic:
+#### Policy Evaluation Logic:
 
 1. Evaluate all policies
 2. Is there a deny?
@@ -78,13 +77,15 @@ Policy JSON format example:
 
 Used to delegate access with defined permissions to users, apps or services that don't normally have access to your AWS resources **without having to share long-term access keys**.
 
-Notes:
+#### Notes
+
 - You attach policies with required permissions to a role.
 - You assume a role by calling the AWS Security Token Service (STS) AssumeRole API. These APIs return a set of temporally security credentials that application can use to sign requests to AWS.
 - You can only associate one IAM Role with an EC2 instance at this time.
 - You cannot associate an IAM Role to a IAM group.
 
-Definitions:
+#### Definitions
+
 - **Role**: a set of permissions that grant access to actions and resources in AWS. These permissions are attached to de role, not the user or group.
 - **AWS service role**: A role that a service assumes to perform actions in your account in your behalf.
 - **AWS service role for an EC2 instance**: A special type of service role that a service assumes to launch an AMazon EC2 instance that runs your application.
@@ -97,7 +98,8 @@ Definitions:
 - **Principal**: An entity that can perform actions (root user, IAM users, or a role).
 - **Role for cross-account access**: Granting access to resources in one account to a trusted principal in a different account.
 
-When to use roles?
+#### When to use roles?
+
 - Provide access for services offered by AWS to AWS resources.
 - Provide access for an IAM user in one AWS account that you own to access resources in another account that you own.
 - Provide access for externally authenticated users (identity federation).

@@ -9,8 +9,8 @@ It cover AWS Products:
         - Lambda
 - Storage
     - Important services:
-        - S3
-        - Glacier
+        - [S3](S3.md)
+        - [Glacier](S3.md)
 - Database
     - Important services:
         - RDS
