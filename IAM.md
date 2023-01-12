@@ -7,8 +7,24 @@ Enables you to manage the access to AWS services and resources
 ## Introduction
 
 - It works creating and configuring Resources, IAM Users, IAM Groups, IAM Roles, IAM Permissions and IAM Policies.
-
 - IAM is a Global Service
+
+
+## Best practices
+
+- Lock your AWS root user access keys
+- Create individual IAM Users
+- Configure a strong password policy (min-length, expiration)
+- Rotate credentials regularly
+- Remove unused credentials
+- Enable MFA
+- Assign permissions to groups instead of users
+- Use AWS defined policies whenever possible
+- Use policy conditions for extra security
+- Grant least privileges
+- Use roles to delegate permissions
+- Monitor activities
+
 
 ## Login
 
