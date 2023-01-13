@@ -4,8 +4,9 @@ It cover AWS Products:
 - Compute
     - Develop, deploy run and scale applications
     - Important services:
-        - EC2
+        - [EC2](EC2.md)
         - Elastic Beanstalk
+        - Amazon Machine Images (AMI)
         - Lambda
 - Storage
     - Important services:
