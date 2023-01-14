@@ -2,41 +2,32 @@
 
 It cover AWS Products:
 - Compute
-    - Develop, deploy run and scale applications
-    - Core services:
-        - [EC2](EC2.md)
-        - [Elastic Beanstalk](EC2.md#ebs)
-        - [Amazon Machine Images (AMI)](EC2.md#ami)
-        - Lambda
+    - [EC2](EC2.md)
+    - [Elastic Beanstalk](EC2.md#ebs)
+    - [Amazon Machine Images (AMI)](EC2.md#ami)
+    - Lambda
 - Storage
-    - Core services:
-        - [S3](S3.md)
-        - [Glacier](S3.md#storage-classes)
+    - [S3](S3.md)
+    - [Glacier](S3.md#storage-classes)
 - Database
-    - Core services:
-        - RDS
-        - DynamoDB
-        - Redshift
+    - RDS
+    - DynamoDB
+    - Redshift
 - Networking & Content Delivery
-    - Core services:
-        - VPC
-        - CloudFront
-        - CloudFront
-        - Direct Connect
-        - Elastic Load Balancer
-        - Route 53
+    - [ELB](ELB.md)
+    - VPC
+    - CloudFront
+    - Direct Connect
+    - Route 53
 - Security, Identity & Compliance
-    - Core services:
-        - [IAM](IAM.md)
+    - [IAM](IAM.md)
 - Management & Governance
-    - Core services:
-        - CloudWatch
-        - CloudTrail
-        - Auto Scaling
-        - CloudFormation
-        - Config
-        - Trusted Advisor
+    - CloudWatch
+    - CloudTrail
+    - Auto Scaling
+    - CloudFormation
+    - Config
+    - Trusted Advisor
 - Analytics
-    - Core services:
-        - Kinesis
+    - Kinesis
 - Application integration
