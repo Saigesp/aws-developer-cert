@@ -24,7 +24,6 @@ Enables you to manage the access to AWS services and resources
 - Use roles to delegate permissions
 - Monitor activities
 
-
 ## Login
 
 https://custom_alias.signin.aws.amazon.com/console (alias created under IAM section)

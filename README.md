@@ -3,22 +3,22 @@
 It cover AWS Products:
 - Compute
     - Develop, deploy run and scale applications
-    - Important services:
+    - Core services:
         - [EC2](EC2.md)
-        - Elastic Beanstalk
-        - Amazon Machine Images (AMI)
+        - [Elastic Beanstalk](EC2.md#ebs)
+        - [Amazon Machine Images (AMI)](EC2.md#ami)
         - Lambda
 - Storage
-    - Important services:
+    - Core services:
         - [S3](S3.md)
-        - [Glacier](S3.md)
+        - [Glacier](S3.md#storage-classes)
 - Database
-    - Important services:
+    - Core services:
         - RDS
         - DynamoDB
         - Redshift
 - Networking & Content Delivery
-    - Important services:
+    - Core services:
         - VPC
         - CloudFront
         - CloudFront
@@ -26,10 +26,10 @@ It cover AWS Products:
         - Elastic Load Balancer
         - Route 53
 - Security, Identity & Compliance
-    - Important services:
+    - Core services:
         - [IAM](IAM.md)
 - Management & Governance
-    - Important services:
+    - Core services:
         - CloudWatch
         - CloudTrail
         - Auto Scaling
@@ -37,6 +37,6 @@ It cover AWS Products:
         - Config
         - Trusted Advisor
 - Analytics
-    - Important services:
+    - Core services:
         - Kinesis
 - Application integration
