@@ -179,6 +179,8 @@ There are no charges for creating a placement group.
 
 A set of "firewall" rules that control the traffic for your instance.
 
+Security Groups are **stateful**: if a port is open for incoming traffic, it is automatically open for outgoing traffic.
+
 ### Important notes
 
 - Security Grouo protects the instance by applying a securitty wall of rules (like a firewall).

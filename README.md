@@ -15,7 +15,7 @@ It cover AWS Products:
     - Redshift
 - Networking & Content Delivery
     - [ELB](ELB.md)
-    - VPC
+    - [VPC](VPC.md)
     - CloudFront
     - Direct Connect
     - Route 53
