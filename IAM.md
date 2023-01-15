@@ -44,7 +44,7 @@ JSON stored control policies
     - Inline Policies
 - Resource Based Policies: Can be attached to a resource (S3...). These are Inline Policies
 
-Policy JSON format example:
+#### Policy JSON format example:
 
 ```json
 {
@@ -65,12 +65,9 @@ Policy JSON format example:
 #### Policy Evaluation Logic:
 
 1. Evaluate all policies
-2. Is there a deny?
-    1. Then deny
-3. Is there an allow?
-    1. Then allow
-4. No deny nor allow?
-    1. Then deny (Default deny)
+2. Is there a deny? -> Then deny
+3. Is there an allow? -> Then allow
+4. No deny nor allow? -> Then deny (Default deny)
 
 ## Roles
 
@@ -83,7 +80,7 @@ Used to delegate access with defined permissions to users, apps or services that
 - You can only associate one IAM Role with an EC2 instance at this time.
 - You cannot associate an IAM Role to a IAM group.
 
-#### Definitions
+### Definitions
 
 - **Role**: a set of permissions that grant access to actions and resources in AWS. These permissions are attached to de role, not the user or group.
 - **AWS service role**: A role that a service assumes to perform actions in your account in your behalf.
@@ -97,7 +94,7 @@ Used to delegate access with defined permissions to users, apps or services that
 - **Principal**: An entity that can perform actions (root user, IAM users, or a role).
 - **Role for cross-account access**: Granting access to resources in one account to a trusted principal in a different account.
 
-#### When to use roles?
+### When to use roles?
 
 - Provide access for services offered by AWS to AWS resources.
 - Provide access for an IAM user in one AWS account that you own to access resources in another account that you own.

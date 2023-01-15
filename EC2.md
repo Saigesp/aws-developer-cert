@@ -63,7 +63,7 @@ An AMI (Amazon Machine Image) is a required template (image) that contains the s
 | Unencrypted to encrypted         | Yes       |
 | Encrypted to unencrypted         | No        |
 
-#### Important notes:
+### Important notes:
 - There aren't charges for copying an AMI, but standard storage and data transfer rates apply.
 - AWS doesn't copy launch permissions, user-defined tags, or [Amazon S3](S3.md) bucket permissions.
 - AMI sharing between different AWS accounts is allowed.
@@ -135,7 +135,7 @@ When you encrypt a volume the following types of data are encrypted:
 
 A point-in-time backup of the data that is stored on a EBS volume. They are stored in [S3](S3.md) and contains all the information needed to restore your data to a new EBS volume.
 
-#### Important points: 
+### Important points: 
 - **Snapshots are incremental**: Only the blocks on the devide that have changed after your more recent snapshot are saved.
 - **Loading snapshots is lazy-loading**: After a volume is created from a snapshot, not all the data is transfered from [S3](S3.md) instantly. If the instance tries to access non-loaded-yet data, the volume inmediatly downloads the requested data and then continues loading the rest of the data.
 - **Region-aware**: Snapshots are constrained to the region where they are created, but can be cross-region copied.
@@ -158,7 +158,7 @@ Arrangements of instances on the underlying hardware/hypervisor. It determines h
 
 There are no charges for creating a placement group.
 
-#### Types:
+### Types:
 - **Cluster**:
     - Instances on a single hypervisor in single AZ.
     - Instances are launched in a low-latency group.
