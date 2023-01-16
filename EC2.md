@@ -50,6 +50,7 @@ An AMI (Amazon Machine Image) is a required template (image) that contains the s
             - **Spot Instance Interruption**: When Amazon terminates your instance.
     - **Dedicated Host**:
         - Instance it's not shaded with other customer's VMs, but may be in a different machine.
+        - Dedicated Host can be shared with other accounts within an AWS Organisation or an account outside AWS Organisation. When a Dedicated Host is shared, the owner is responsible for managing the Dedicated Host while consumers can manage the Instance they have launched on this Dedicated Host.
     - **Dedicated Instance**:
         - Instance it's not shader with other customer's VMs, and always will be running in the same machine.
         - Useful when using hardware licensing.
@@ -152,6 +153,13 @@ The data persist during the lifetime of the instance (even if the instace reboot
 
 If you creates an AMI (image) from an instance, the data isn't preserved.
 
+For instance store-backed instances that could not be automatically recovered, AWS recommends to perform the following:
+
+1. Launch a replacement instance on a new Dedicated Host from your most recent AMI.
+2. Migrate all of the necessary data to the replacement instance.
+3. Terminate the original instance on the impaired Dedicated Host.</p>
+
+
 ## Placement Group
 
 Arrangements of instances on the underlying hardware/hypervisor. It determines how the instances are placed on the hypervisor upon launching.
@@ -221,3 +229,59 @@ Every instance on a VPC has a default network interface, called the primary netw
 - One MAC address.
 - A source/destination check flag.
 - A description.
+
+## Data backups
+
+### Multiple EBS volumes
+
+Using Multi-Volume Snapshot, a point-in-time snapshot of all EBS volumes connected to an EC2 instance can be performed (Snapshot->resource type: Instance).
+
+## Capacity Reservation Sharing
+
+Share a reseverd capacity with others.
+
+Using Capacity reservation sharing, reserved instances can be shared with other accounts within an **AWS Organisation** or other **AWS accounts**.
+
+## Reserved instances
+
+### Notes:
+
+- Reserved Instance can be queued for purchase on a future date. Reserved Instance purchase can be queued only for regional instance & not for zonal Reserved Instance & Instance brought from other sellers.
+
+## Hibernation
+
+When an EC2 instance is hibernated, the following are charged:
+
+- EBS storage charges for in-memory data saved in EBS volumes.
+- Elastic IP address charges which are associated with an instance.
+
+### Notes:
+- When the EC2 instance is hibernated there are no charges for instance.
+- When the EC2 instance is hibernated, in-memory data is stored in EBS volumes & not the S3 bucket. So, no charges are incurred for the S3 bucket. Also, in a hibernated state there are no charges for instance.
+
+## Crash reporting
+
+For getting crash dump remotely for an unresponsive EC2 instance, **EC2:SendDiagnosticInterrupt** API can be used which based upon OS configuration can do multiple things like getting crash dump, obtain a backtrace, load a kernel replacement or restart a system.
+
+## EC2 Image Builder
+
+EC2 Image Builder can help provide images with the latest security patches & also automates testing these images to validate deployment.
+
+## Fast Snapshot restore (FSR)
+
+Amazon EBS fast snapshot restore (FSR) enables you to create a volume from a snapshot that is fully initialized at creation. This eliminates the latency of I/O operations on a block when it is accessed for the first time. Volumes that are created using fast snapshot restore instantly deliver all of their provisioned performance.
+
+### Notes:
+- Must be explicitly enabled on a per-snapshot basis.
+- Needs to be enabled per Availability Zone.
+- Can be enabled on both existing as well as new Snapshots.
+
+## EC2 instance Connect
+
+Amazon EC2 Instance Connect provides a simple and secure way to connect to your Linux instances using SSH.
+
+With EC2 Instance Connect, you use [AWS (IAM)](IAM.md) policies and principals to control SSH access to your instances, removing the need to share and manage SSH keys.
+
+### Notes
+- All connection requests using EC2 Instance Connect are logged to AWS CloudTrail
+- For EC2 instance with the latest Linux OS, EC2 instance Connect is preconfigured & no additional setup is required.

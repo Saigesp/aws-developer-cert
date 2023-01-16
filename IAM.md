@@ -79,6 +79,7 @@ Used to delegate access with defined permissions to users, apps or services that
 - You assume a role by calling the AWS Security Token Service (STS) AssumeRole API. These APIs return a set of temporally security credentials that application can use to sign requests to AWS.
 - You can only associate one IAM Role with an EC2 instance at this time.
 - You cannot associate an IAM Role to a IAM group.
+- The permissions of your IAM user and any roles that you assume are not cumulative. Only one set of permissions is active at a time. When you assume a role, you temporarily give up your previous user or role permissions and work with the permissions assigned to the role. When you exit the role, your user permissions are automatically restored.
 
 ### Definitions
 
@@ -100,3 +101,54 @@ Used to delegate access with defined permissions to users, apps or services that
 - Provide access for an IAM user in one AWS account that you own to access resources in another account that you own.
 - Provide access for externally authenticated users (identity federation).
 - Provide access to IAM users in AWS accounts owned by third parties.
+
+### Application access
+
+To assume a role, an application calls the **AWS STS AssumeRole API** operation and passes the ARN of the role to use. When you call AssumeRole, you can optionally pass a JSON policy. This allows you to restrict permissions for that for the role's temporary credentials.
+
+This is useful when you need to give the temporary credentials to someone else. They can use the role's temporary credentials in subsequent AWS API calls to access resources in the account that owns the role. 
+
+You cannot use the passed policy to grant permissions that are in excess of those allowed by the permissions policy of the role that is being assumed.
+
+## Access Analyzer
+
+AWS IAM Access Analyzer provides the following capabilities:
+
+- Helps identify resources in your organization and accounts that are shared with an external entity.
+- Validates IAM policies against policy grammar and best practices.
+- Generates IAM policies based on access activity in your AWS CloudTrail logs.
+
+It analyzes the following resource types:
+
+- S3 buckets
+- IAM roles
+- KMS keys
+- Lambda functions and layers
+- SQS queues
+- AWS Secrets Manager secrets
+- SNS topics
+- EBS volume snapshots
+- RDS DB snapshots
+- RDS DB cluster snapshots
+- ECR repositories
+- EFS file systems
+
+## IAM database authentication
+
+You can authenticate to your DB instance using AWS Identity and Access Management (IAM) database authentication. IAM database authentication works with:
+- MariaDB
+- MySQL
+- PostgreSQL
+
+With this authentication method, you don't need to use a password when you connect to a DB instance. Instead, you use an authentication token.
+
+## AssumeRole
+
+Returns a set of temporary security credentials that you can use to access AWS resources that you might not normally have access to.
+
+Typically, you use AssumeRole within your account or for cross-account access.
+
+These temporary credentials consist of:
+- An access key ID
+- A secret access key
+- A security token

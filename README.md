@@ -3,7 +3,7 @@
 It cover AWS Products:
 - Compute
     - [EC2](EC2.md)
-    - [Elastic Beanstalk](EC2.md#ebs)
+    - Elastic Beanstalk
     - [Amazon Machine Images (AMI)](EC2.md#ami)
     - Lambda
 - Storage
