@@ -3,16 +3,16 @@
 It cover AWS Products:
 - Compute
     - [EC2](EC2.md)
-    - Elastic Beanstalk
     - [Amazon Machine Images (AMI)](EC2.md#ami)
+    - [Elastic Beanstalk](ElasticBeanstalk.md)
     - Lambda
 - Storage
     - [S3](S3.md)
     - [Glacier](S3.md#storage-classes)
 - Database
+    - [Redshift](Redshift.md)
     - RDS
     - DynamoDB
-    - Redshift
 - Networking & Content Delivery
     - [ELB](ELB.md)
     - [VPC](VPC.md)
