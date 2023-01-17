@@ -51,3 +51,22 @@ You can define up to 5 GSIs and 5 LSIs per table.
 | Created at any time           | Must be created at table creation        |
 | Can query entire table        | Only can query a single partition        |
 | Supports eventual consistency | Supports eventual and strong consistency |
+
+## Read consistency
+
+Two types of read consistency:
+
+- **Eventually Consistent Reads**:
+    - When you read data from a DynamoDB table, the response might not reflect the results of a recently completed write operation and might include some stale data. If you repeat your read request after a short time, the response should return the latest data.
+- **Strongly Consistent Reads**:
+    - When you request a strongly consistent read, DynamoDB returns a response with the most up-to-date data, reflecting the updates from all prior write operations that were successful.
+    - Some disadvantages:
+        - Not supported on global secondary indexes (GSI).
+        - Uses more throughput capacity (~x2). If there is a network delay or outage, it might not be available and DynamoDB may return a server error.
+        - If read requests do not reach the leader node on the first attempt, it may experience a higher latency.
+
+## DynamoDB Streams
+
+Optional feature thath captures a time-ordered sequence of item-level modifications in any DynamoDB table and stores them encrypted in a log for up to 24 hours.
+
+Can be used for example with AWS Lambda to create a trigger
