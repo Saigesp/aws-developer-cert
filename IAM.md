@@ -2,45 +2,37 @@
 
 Enables you to manage the access to AWS services and resources
 
-**PD: This services usage is free**
+It works creating and configuring Resources, IAM Users, IAM Groups, IAM Roles, IAM Permissions and IAM Policies.
 
-## Introduction
+### General notes:
 
-- It works creating and configuring Resources, IAM Users, IAM Groups, IAM Roles, IAM Permissions and IAM Policies.
-- IAM is a Global Service
-
-## Best practices
-
-- Lock your AWS root user access keys
-- Create individual IAM Users
-- Configure a strong password policy (min-length, expiration)
-- Rotate credentials regularly
-- Remove unused credentials
-- Enable MFA
-- Assign permissions to groups instead of users
-- Use AWS defined policies whenever possible
-- Use policy conditions for extra security
-- Grant least privileges
-- Use roles to delegate permissions
-- Monitor activities
-
-## Login
-
-https://custom_alias.signin.aws.amazon.com/console (alias created under IAM section)
+- IAM is a Global Service.
+- This service usage is **free**.
+- Principal: Users, Roles and AWS applications thath may use other services.
+- Requests: Defined by actions, resources & principal who is doing the action.
+- Policies: Based on identities or resources.
+- Login point can be customized: https://custom_alias.signin.aws.amazon.com/console
 
 ## Users
+
+[See documentation here](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_identity-management.html).
 
 Access type:
 - Programatic access: Access ID and secret key
 - Password access: User and password
 
+## Groups
+
+It is preferable to create roles rather than groups.
+
 ## Policies
 
-JSON stored control policies
+A policy is an object in AWS that, when associated with an identity or resource, defines their permissions. [See documentation here](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_access-management.html).
 
-#### Types:
+### Policy types:
+
 - Identity Based Policies: Can be attached to a principal (user, group, role)
-    - Managed Policies (AWS MAnaged, Customer Managed)
+    - Managed Policies (AWS Managed, Customer Managed)
     - Inline Policies
 - Resource Based Policies: Can be attached to a resource (S3...). These are Inline Policies
 
@@ -72,6 +64,10 @@ JSON stored control policies
 ## Roles
 
 Used to delegate access with defined permissions to users, apps or services that don't normally have access to your AWS resources **without having to share long-term access keys**.
+
+TO assume a role, an user must call [AssumeRole](#assumerole).
+
+> **You can grant a role to an external user**. This is useful if you have many AWS accounts, because you can create users in only one AWS account and grant roles temporary in other accounts without register users again in these accounts.
 
 #### Notes
 
@@ -112,13 +108,15 @@ You cannot use the passed policy to grant permissions that are in excess of thos
 
 ## Access Analyzer
 
-AWS IAM Access Analyzer provides the following capabilities:
+IAM Access Analyzer helps you identify the resources in your organization and accounts, such as Amazon S3 buckets or IAM roles, shared with an external entity.
 
-- Helps identify resources in your organization and accounts that are shared with an external entity.
-- Validates IAM policies against policy grammar and best practices.
-- Generates IAM policies based on access activity in your AWS CloudTrail logs.
+#### Capabilities:
 
-It analyzes the following resource types:
+- Helps **identify resources** in your organization and accounts that are shared with an external entity.
+- **Validates IAM policies** against policy grammar and best practices.
+- **Generates IAM policies** based on access activity in your AWS CloudTrail logs.
+
+#### It analyzes the following resource types:
 
 - S3 buckets
 - IAM roles
@@ -144,7 +142,7 @@ With this authentication method, you don't need to use a password when you conne
 
 ## AssumeRole
 
-Returns a set of temporary security credentials that you can use to access AWS resources that you might not normally have access to.
+Returns a set of temporary security credentials that you can use to access AWS resources that you might not normally have access to. [See documentation here](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html).
 
 Typically, you use AssumeRole within your account or for cross-account access.
 
@@ -152,3 +150,46 @@ These temporary credentials consist of:
 - An access key ID
 - A secret access key
 - A security token
+
+> The temporary security credentials created by AssumeRole can be used to make API calls to any AWS service **except AWS STS `GetFederationToken` and `GetSessionToken` API operations**.
+
+### Using MFA with AssumeRole
+
+You can include multi-factor authentication (MFA) information when you call AssumeRole. This is useful for cross-account scenarios to ensure that the user that assumes the role has been authenticated with an AWS MFA device.
+
+In that scenario, the **trust policy of the role being assumed includes a MFA condition**. If the caller does not include valid MFA information, the request to assume the role is denied.
+
+The condition in a trust policy that tests for MFA authentication might look like:
+
+```json
+"Condition": { "Bool": { "aws:MultiFactorAuthPresent": true } }
+```
+
+### Request Parameters
+
+- **RoleArn** (Required): The Amazon Resource Name (ARN) of the role to assume.
+- **RoleSessionName** (Required): An identifier for the assumed role session.
+- **DurationSeconds** (Optional): The duration, in seconds, of the role session, from 900s (15 minutes) up to the maximum session duration set for the role. If you specify a value higher than this setting or the administrator setting (whichever is lower), the operation fails.
+- **ExternalId** (Optional): A unique identifier that might be required when you assume a role in another account..
+- **Policy** (Optional): An IAM policy in JSON format that you want to use as an inline session policy.
+- **PolicyArns.member.N** (Optional): The Amazon Resource Names (ARNs) of the IAM managed policies that you want to use as managed session policies.
+- **SerialNumber** (Optional): The identification number of the MFA device that is associated with the user who is making the AssumeRole call.
+- **SourceIdentity** (Optional): The source identity specified by the principal that is calling the AssumeRole operation.
+- **Tags.member.N** (Optional): A list of session tags that you want to pass.
+- **TokenCode** (Optional): The value provided by the MFA device, if the trust policy of the role being assumed requires MFA.
+- **TransitiveTagKeys.member.N** (Optional): A list of keys for session tags that you want to set as transitive.
+
+## Best security practices
+
+- Lock your AWS root user access keys
+- Create individual IAM Users
+- Configure a strong password policy (min-length, expiration)
+- Rotate credentials regularly
+- Remove unused credentials
+- Enable MFA
+- Assign permissions to groups instead of users
+- Use AWS defined policies whenever possible
+- Use policy conditions for extra security
+- Grant least privileges
+- Use roles to delegate permissions
+- Monitor activities
