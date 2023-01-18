@@ -12,13 +12,13 @@ It cover AWS Products:
 - Database
     - [Redshift](Redshift.md)
     - RDS
-    - DynamoDB
+    - [DynamoDB](DynamoDB.md)
 - Networking & Content Delivery
     - [ELB](ELB.md)
     - [VPC](VPC.md)
     - CloudFront
     - Direct Connect
-    - Route 53
+    - [Route 53](Route53.md)
 - Security, Identity & Compliance
     - [IAM](IAM.md)
 - Management & Governance
