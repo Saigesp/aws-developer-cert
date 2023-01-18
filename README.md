@@ -1,6 +1,8 @@
 # AWS Certifier Developer - Associate
 
 It cover AWS Products:
+- Tools
+    - [CLI](CLI.md)
 - Compute
     - [EC2](EC2.md)
     - [Amazon Machine Images (AMI)](EC2.md#ami)
