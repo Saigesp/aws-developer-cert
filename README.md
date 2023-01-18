@@ -7,7 +7,7 @@ It cover AWS Products:
     - [EC2](EC2.md)
     - [Amazon Machine Images (AMI)](EC2.md#ami)
     - [Elastic Beanstalk](ElasticBeanstalk.md)
-    - Lambda
+    - [Lambda](Lambda.md)
 - Storage
     - [S3](S3.md)
     - [Glacier](S3.md#storage-classes)
