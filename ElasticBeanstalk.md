@@ -20,3 +20,9 @@ namespace: aws:ec2:vpc
     option_name: VPCId
     value: vpc-170647c
 ```
+
+## Inmutable deployments
+
+Immutable deployments perform a immutable update to launch a full set of new instances running the new version of the application in a separate Auto Scaling group, alongside the instances running the old version. Immutable deployments can prevent issues caused by partially completed rolling deployments.
+
+If the new instances don't pass health checks, Elastic Beanstalk terminates them, leaving the original instances untouched.

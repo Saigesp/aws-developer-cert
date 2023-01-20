@@ -12,6 +12,8 @@ It cover AWS Products:
 - Storage
     - [S3](S3.md)
     - [Glacier](S3.md#storage-classes)
+- API
+    - [API Gateway](APIGateway.md)
 - Database
     - [Redshift](Redshift.md)
     - RDS
