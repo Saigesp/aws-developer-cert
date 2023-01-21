@@ -14,7 +14,7 @@ Provides an embedable dynamically generated image ([AMI](EC2.md#ami)) that displ
 
 ## Build spec (buildspec.yml)
 
-Collection of pre-build, build and post-build commands in YAML used to run a build.
+Collection of commands in YAML used to run a build.
 
 ### Phases
  - install
