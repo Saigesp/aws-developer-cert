@@ -41,7 +41,7 @@ It cover AWS products & services:
     - [KMS](KMS.md)
     - [CloudHSM](CloudHSM.md)
 - Management & Governance
-    - CloudWatch
+    - [CloudWatch](CloudWatch.md)
     - CloudTrail
     - Auto Scaling
     - CloudFormation
