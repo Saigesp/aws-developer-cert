@@ -171,3 +171,15 @@ Accepts the TCP traffic from clients.
 ### Instance Termination Logic
 
 ![img](img/aws-autoscaling-termination-logic.png)
+
+## Monitoring
+
+#### Types
+- Request tracing.
+- Access logs.
+    - [S3](S3.md) bucket must be located on the same region and have policy that grants ELB permissions to write.
+- [CloudWatch](CloudWatch.md) metrics.
+    - Only when requests are flowing through the LB.
+    - 60-seconds periods.
+- [CloudTrail](CloudTrail.md) logs.
+    - Logs only API calls, not HTTP requests made to LBs.
