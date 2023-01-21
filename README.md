@@ -7,10 +7,12 @@ It cover AWS products & services:
     - [Cloud9](Cloud9.md)
 - Compute
     - [EC2](EC2.md)
-    - [Amazon Machine Images (AMI)](EC2.md#ami)
+    - [AMI](EC2.md#ami)
     - [Elastic Beanstalk](ElasticBeanstalk.md)
     - [Lambda](Lambda.md)
     - [Athena](Athena.md)
+    - [ECS](ECS.md)
+    - [Fargate](Fargate.md)
 - Storage
     - [S3](S3.md)
     - [Glacier](S3.md#storage-classes)
