@@ -18,7 +18,12 @@ It cover AWS Products:
     - [Redshift](Redshift.md)
     - RDS
     - [DynamoDB](DynamoDB.md)
-- Networking & Content Delivery
+- CI/CD
+    - [CodeCommit](CodeCommit.md)
+    - [CodeBuild](CodeBuild.md)
+    - [CodeDeploy](CodeDeploy.md)
+    - [CodePipeline](CodePipeline.md)
+- Networking
     - [ELB](ELB.md)
     - [VPC](VPC.md)
     - CloudFront
