@@ -3,6 +3,7 @@
 It cover AWS Products:
 - Tools
     - [CLI](CLI.md)
+    - [Cloud9](Cloud9.md)
 - Compute
     - [EC2](EC2.md)
     - [Amazon Machine Images (AMI)](EC2.md#ami)

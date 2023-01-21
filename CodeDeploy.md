@@ -21,11 +21,27 @@ Deployment configuration, type, rollbacks, triggers and alarms.
 
 Agent that must be installed on EC2/On-prem instances for use of codeDeploy.
 
-On EC2 its done through EC2 Configuration / Advanced details / User data (placing code)
+When the CodeDeploy agent is installed, a configuration file is placed on the instance. The configuration settings include:
+- **:log_aws_wire:** : If logs must be caputed.
+- **:log_dir:**: Where to put the logs files.
+- **:pid_dir:**: Where to place the process ID.
+- **:program_name:**: agent program name. Defaults to `codedeploy-agent`.
+- **:root_dir:**: root dir.
+- **:wait_between_runs:**: Time in seconds between polling for pending deployments. Defaults to 1.
+- **:on_premises_config_file:**: For Onprem, the path to an alternate location for the configuration file.
+- **:proxy_uri:**: (Optional). The proxy through which you want the agent to connect to AWS.
+- **:max_revisions:**: (Optional). The number of revisions that you want to archive.
+- **:enable_auth_policy:**: (Optional). Set to true if you want to use IAM authorization to configure access control. Must be true when using on a VPC.
+
+## Rollback
+
+When there is a deployment phase with a **content overwrite option as Overwrite**, it will delete all files from the previous deployment session. If this deployment fails, to restore to the previous working deployment, either Manual or Automatic rollback must be enabled. Also, deleted files as a part of the failed deployment phase **need to be added manually**.
 
 ## App spec (appspec.yml)
 
 Collection of commands in YAML used to run a deploy.
+
+Can be stored on the project or on S3.
 
 #### Syntax
 
@@ -37,33 +53,35 @@ files:
     destination: /var/www/html/
 
 Resources:
+  # EC2/On-Prem doesnt have resources
+  
+  # ECS
   - TargetService:
       Type: AWS::ECS::Service
       Properties:
-        TaskDefinition: "arn:aws:ecs:us-east-1:111222333444:task-definition/my-task-definition-family-name:1"
+        TaskDefinition: "{arn-task-definition}"
         LoadBalancerInfo:
           ContainerName: "SampleApplicationName"
           ContainerPort: 80
-        # Optional properties
-        PlatformVersion: "LATEST"
-        NetworkConfiguration:
-          AwsvpcConfiguration:
-            Subnets: ["subnet-1234abcd","subnet-5678abcd"]
-            SecurityGroups: ["sg-12345678"]
-            AssignPublicIp: "ENABLED"
-        CapacityProviderStrategy:
-          - Base: 1
-            CapacityProvider: "FARGATE_SPOT"
-            Weight: 2
-          - Base: 0
-            CapacityProvider: "FARGATE"
-            Weight: 1
+  # Lambda
+  - myLambdaFunction:
+      Type: AWS::Lambda::Function
+      Properties:
+        Name: "myLambdaFunction"
+        Alias: "myLambdaFunctionAlias"
+        CurrentVersion: "1"
+        TargetVersion: "2"
 
-Hooks:
-  # EC2/On-Prem (there are more depending on deployment type)
+Hooks: # These are ONLY the available scripting hooks
+  # EC2/On-Prem
+  - ApplicationStart: "..."
+  - ApplicationStop: "..."
   - BeforeInstall: "..."
   - AfterInstall: "..."
-  - ApplicationStart: "..."
+  - BeforeBlockTraffic: "..."
+  - AfterBlockTraffic: "..."
+  - BeforeAllowTraffic: "..."
+  - AfterAllowTraffi: "..."
   - ValidateService: "..."
   # ECS
   - BeforeInstall: "..."

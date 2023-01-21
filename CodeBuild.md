@@ -16,6 +16,8 @@ Provides an embedable dynamically generated image ([AMI](EC2.md#ami)) that displ
 
 Collection of commands in YAML used to run a build.
 
+Can be stored on the project or on S3.
+
 ### Phases
  - install
  - pre_build

@@ -30,6 +30,12 @@ Continuous delivery service that enables you to model, visualize, and automate t
     - Require manual approval from an user.
 6. Deploy actions are executed.
 
+## Custom actions
+
+You can create custom actions for the following categories: build, deploy, test and invoke.
+
+You must also create a **job worker** that will poll CodePipeline for job requests for this custom action, execute the job, and return the status result. This job worker can be located on any computer or resource as long as it has access to the public endpoint for CodePipeline.
+
 ## Best practices
 
 See [all CodePipeline best practices here](https://docs.aws.amazon.com/codepipeline/latest/userguide/best-practices.html)
