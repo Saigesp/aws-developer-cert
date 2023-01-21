@@ -118,16 +118,16 @@ IAM Access Analyzer helps you identify the resources in your organization and ac
 
 #### It analyzes the following resource types:
 
-- S3 buckets
+- [S3](S3.md) buckets
 - IAM roles
-- KMS keys
-- Lambda functions and layers
-- SQS queues
+- [KMS](KMS.md) keys
+- [Lambda](Lambda.md) functions and layers
+- [SQS](SQS.md) queues
 - AWS Secrets Manager secrets
-- SNS topics
-- EBS volume snapshots
-- RDS DB snapshots
-- RDS DB cluster snapshots
+- [SNS](SNS.md) topics
+- [EBS](EBS.md) volume snapshots
+- [RDS](RDS.md) DB snapshots
+- [RDS](RDS.md) DB cluster snapshots
 - ECR repositories
 - EFS file systems
 

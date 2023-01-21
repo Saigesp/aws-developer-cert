@@ -1,7 +1,8 @@
 # AWS Certifier Developer - Associate
 
-It cover AWS Products:
+It cover AWS products & services:
 - Tools
+    - [ARN](ARN.md)
     - [CLI](CLI.md)
     - [Cloud9](Cloud9.md)
 - Compute
@@ -32,6 +33,8 @@ It cover AWS Products:
     - [Route 53](Route53.md)
 - Security, Identity & Compliance
     - [IAM](IAM.md)
+    - [KMS](KMS.md)
+    - [CloudHSM](CloudHSM.md)
 - Management & Governance
     - CloudWatch
     - CloudTrail
