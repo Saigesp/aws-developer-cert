@@ -61,6 +61,11 @@ Runs and maintains your desired number of tasks simultaneously in an Amazon ECS 
 
 If any of your tasks fail or stop for any reason, the Amazon ECS service scheduler launches another instance based on your task definition to maintain your desired number of tasks in the service.
 
+## ECS instances
+
+#### Notes:
+- If you stop (not terminate) an Amazon ECS container instance, the status remains ACTIVE, but the agent connection status transitions to FALSE within a few minutes.
+
 ### Task placement constraints
 
 A task placement constraint is a rule that's considered during task placement.

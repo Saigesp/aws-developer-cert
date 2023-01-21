@@ -14,6 +14,10 @@ Lambda runs your code on a high-availability compute infrastructure and performs
 - Javascript (Node JS)
 - Ruby ?
 
+#### Default capacity
+- 128MB memory.
+- 3 seconds running per call.
+
 #### Limitations (2018):
 - 3GB maximum memory.
 - 900 seconds running per call.
