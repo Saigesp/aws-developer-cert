@@ -118,13 +118,13 @@ A volume is a block-level storage device that you can attach to a single AMI ins
 
 - **Data availability**: AWS replicates the volume within the same AZ for high availability.
 - **Data persistence**: The data persist indepently from the life of an instance (until the volume is deleted explicitly) and volumes can be reattached to new instances (enabling quick data recovering). Also, EBS-backed instances can be stopped and restarted without affecting the data stored.
-- **Data encryption**: Encrypted EBS volumes can be created with the Amazon EBS encryption feature (using AES-256 and AWS KMS master keys).
+- **Data encryption**: Encrypted EBS volumes can be created with the Amazon EBS encryption feature (using AES-256 and AWS [KMS](KMS.md) master keys).
 - **Backup & Snapshots**: Data in volume can be backed via snapshots (stored in [S3](S3.md)), even in running volumes. Also volumes that are restored from a encrypted snapshot are automatically encrypted.
 - **Flexibility**: Volume type, size and IOPS can be changed without service interruptions.
 
 ### Volume encryption
 
-Only volumes that are not the root volume of a instance can be encrypted (requires KMS).
+Only volumes that are not the root volume of a instance can be encrypted (requires [KMS](KMS.md)).
 
 When you encrypt a volume the following types of data are encrypted:
 - Data at rest inside the volume.
