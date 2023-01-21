@@ -86,3 +86,10 @@ Key usage is a property that determines the cryptographic operations the key sup
 - GENERATE_VERIFY_MAC
 
 Each KMS key can have only one key usage.
+
+## Data key caching
+
+Data key caching can improve performance, reduce cost, and help you stay within service limits as your application scales.
+
+#### How it works
+Data key caching stores data keys and related cryptographic material in a cache. When you encrypt or decrypt data, the AWS Encryption SDK looks for a matching data key in the cache. If it finds a match, it uses the cached data key rather than generating a new one.

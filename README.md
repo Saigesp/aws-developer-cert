@@ -11,7 +11,9 @@ It cover AWS products & services:
     - [Elastic Beanstalk](ElasticBeanstalk.md)
     - [Lambda](Lambda.md)
     - [Athena](Athena.md)
+- Containers
     - [ECS](ECS.md)
+    - [ECR](ECR.md)
     - [Fargate](Fargate.md)
 - Storage
     - [S3](S3.md)
