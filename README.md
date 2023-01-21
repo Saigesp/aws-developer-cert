@@ -33,6 +33,7 @@ It cover AWS products & services:
     - [Route 53](Route53.md)
 - Security, Identity & Compliance
     - [IAM](IAM.md)
+    - [Cognito](Cognito.md)
     - [KMS](KMS.md)
     - [CloudHSM](CloudHSM.md)
 - Management & Governance
