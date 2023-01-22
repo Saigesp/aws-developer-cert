@@ -123,7 +123,7 @@ IAM Access Analyzer helps you identify the resources in your organization and ac
 - [KMS](KMS.md) keys
 - [Lambda](Lambda.md) functions and layers
 - [SQS](SQS.md) queues
-- AWS Secrets Manager secrets
+- [Secrets Manager](SecretsManager.md) secrets.
 - [SNS](SNS.md) topics
 - [EBS](EBS.md) volume snapshots
 - [RDS](RDS.md) DB snapshots
