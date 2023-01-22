@@ -33,3 +33,10 @@ Instead of sending trace data directly to X-Ray, each client SDK sends JSON segm
 
 The X-Ray daemon buffers segments in a queue and uploads them to X-Ray in batches. The daemon is available for Linux, Windows, and macOS, and is included on [Elastic Beanstalk](ElasticBeanstalk.md) and [Lambda](Lambda.md).
 
+## X-Ray SDK
+
+Provides:
+
+- **Interceptors**: to add to your code to trace incoming HTTP requests.
+- **Client handlers**: to instrument AWS SDK clients that your application uses to call other AWS services.
+- **An HTTP client**: to use to instrument calls to other internal and external HTTP web services.

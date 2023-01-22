@@ -4,9 +4,12 @@ Service to manage and scale a distributed in-memory data store or cache environm
 
 Supports:
 - Memcached
-    - Does not support AZ
+    - Does not support AZ.
+    - Supports multithreaded performance using multiple cores.
+    - Supports simple caching model.
 - Redis
-    - Does support AZ
+    - Supports AZ.
+    - Supports Backups and restore.
 
 ## Clusters
 

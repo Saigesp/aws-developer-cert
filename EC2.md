@@ -64,6 +64,10 @@ An AMI (Amazon Machine Image) is a required template (image) that contains the s
 | Unencrypted to encrypted         | Yes       |
 | Encrypted to unencrypted         | No        |
 
+### Instance metadata
+
+Instance metadata is data about your instance that you can use to configure or manage the running instance.
+
 ### Important notes:
 - There aren't charges for copying an AMI, but standard storage and data transfer rates apply.
 - AWS doesn't copy launch permissions, user-defined tags, or [Amazon S3](S3.md) bucket permissions.

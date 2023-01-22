@@ -4,7 +4,7 @@ Automation service for deploy and manage applications in the AWS Cloud without h
 
 ## Advanced environment customization with configuration files (.ebextensions)
 
-You can add AWS Elastic Beanstalk configuration files (`.ebextensions`) to your web application's source code to configure your environment and customize the AWS resources that it contains. Configuration files are YAML- or JSON-formatted documents with a `.config` file extension that you place in a folder named .ebextensions and deploy in your application source bundle.
+You can add AWS Elastic Beanstalk configuration files (`.ebextensions`) to your web application's source code to configure your environment and customize the AWS resources that it contains. Configuration files are YAML- or JSON-formatted documents with a `.config` file extension that you place in a folder named **.ebextensions** and deploy in your application source bundle.
 
 Example:
 ```yaml

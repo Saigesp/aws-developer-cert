@@ -46,14 +46,6 @@ It's a convenient way to package libraries and other dependencies that you can u
 
 You can include up to 5 layers per function.
 
-## Step functions
-
-Step Functions provide a reliable way to coordinate components and step through the functions of your application. 
-
-AWS Step Functions is a web service that enables you to coordinate the components of distributed applications and microservices using visual workflows. You build applications from individual components that perform a discrete function, or task, allowing you to scale and change applications quickly.
-
 ## Lambda@Edge
 
-Lambda@Edge is a compute service that lets you execute functions that customize the content that CloudFront delivers. You can author functions in one region and execute them in AWS locations globally closer to the viewer, without provisioning or managing servers.
-
-Lambda@Edge scales automatically, from a few requests per day to thousands per second. Processing requests at AWS locations closer to the viewer than on origin servers significantly reduces latency and improves the user experience.
+Lambda@Edge is a compute service that lets you execute functions that customize the content that [CloudFront](CloudFront.md) delivers. You can author functions in one region and execute them in AWS locations globally closer to the viewer, without provisioning or managing servers.

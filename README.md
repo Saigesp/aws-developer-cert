@@ -5,6 +5,7 @@ AWS Certified Developer - Associate showcases knowledge and understanding of cor
 [More info here](https://aws.amazon.com/certification/certified-developer-associate/?nc1=h_ls).
 
 ## What you'll learn
+
 Preparing for and attaining this certification will showcase:
 
 - Understanding of core AWS services, uses of the services, and basic AWS architecture best practices, including the AWS Shared Responsibility Model, application lifecycle management, and the use of containers in the development process
@@ -13,7 +14,7 @@ Preparing for and attaining this certification will showcase:
 - Ability to apply a basic understanding of cloud-native applications to write code
 - Ability to author, maintain, and debug code modules on AWS
 
-## Appendix
+## Main services and concepts
 
 - Tools
     - [ARN](ARN.md)
@@ -34,7 +35,7 @@ Preparing for and attaining this certification will showcase:
     - [Glacier](S3.md#storage-classes)
 - Database
     - [Redshift](Redshift.md)
-    - RDS
+    - [RDS](RDS.md)
     - [DynamoDB](DynamoDB.md)
     - [ElastiCache](ElastiCache.md)
 - CI/CD
@@ -42,6 +43,7 @@ Preparing for and attaining this certification will showcase:
     - [CodeBuild](CodeBuild.md)
     - [CodeDeploy](CodeDeploy.md)
     - [CodePipeline](CodePipeline.md)
+    - [CodeStar](CodeStar.md)
 - Networking
     - [API Gateway](APIGateway.md)
     - [ELB](ELB.md)
@@ -68,35 +70,56 @@ Preparing for and attaining this certification will showcase:
     - [SNS](SNS.md)
     - [SQS](SQS.md)
     - [SWF](SWF.md)
-    - Step Functions
+    - [Step Functions](StepFunctions.md)
 
-## Por completar
+## Secondary services
 
-- Direct Connect.
-- EKS.
-- CodeArtifact.
-- CodeGuru.
-- CodeStar.
-- Fault Injection Simulator.
-- Secrets Manager.
-- AppSync.
-- AWS Config.
+- **Direct Connect**
+    - Links your internal network to an AWS Direct Connect location over ethernet.
+- **EKS**
+    - Managed service to run Kubernetes.
+- **CodeArtifact**
+    - Managed artifact repository to store and share software packages.
+- **CodeGuru**
+    - Provides intelligent recommendations for Java applications.
+- **Fault Injection Simulator**
+    - Perform fault injection experiments on your AWS workloads (chaos engineering).
+- **Secrets Manager**
+    - Securely encrypt, store, and retrieve credentials for your databases and other services.
+- **AppSync**
+    - Managed GraphQL service.
+- **Config**
+    - Detailed view of the resources associated with your AWS account.
+- **Elastic File System**
+    - Managed file storage service (no need of provisioning or managing storage capacity).
+- **Data Pipeline**
+    - Automate the movement and transformation of data.
+- **Inspector**
+- **Systems Manager Agent**
+- **SES**
+
 
 ## A repasar
+
 - CodeDeploy rollback failures: https://docs.aws.amazon.com/codedeploy/latest/userguide/deployments-rollback-and-redeploy.html
+
 - BeanStalk environment update: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environments-updating.html
 - BeanStalk swap URL: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.CNAMESwap.html
 - BeanStalk CLI: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3.html
+
 - APIGateway releases: https://docs.aws.amazon.com/apigateway/latest/developerguide/canary-release.html
 - APIGateway responses: https://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html
+
 - System Manager Parameter Store: https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html
+
 - ECS Instances: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_instances.html
+
 - Lambda FAQS: https://aws.amazon.com/lambda/faqs/
+
 - S3 Encryption: https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingServerSideEncryption.html
 - S3 Multipart upload: https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html
-- SNS vs SQS: https://stackoverflow.com/questions/13681213/what-is-the-difference-between-amazon-sns-and-amazon-sqs
+
 - DynamoDB DAX Cache: https://aws.amazon.com/blogs/database/amazon-dynamodb-accelerator-dax-a-read-throughwrite-through-cache-for-dynamodb/
 - DynamoDB DAX Item Cache: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.html#DAX.concepts.item-cache
 - DynamoDB Query: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Query.html
 - DynamoDB save large objects on S3: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-use-s3-too.html
-- CloudWatch vs CloudTrail
