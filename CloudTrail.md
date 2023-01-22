@@ -8,7 +8,7 @@ Actions taken by a user, role, or an AWS service are recorded as events in Cloud
 
 | CloudWatch                   | CloudTrail                             |
 | ---------------------------- | -------------------------------------- |
-| Resource centered            | User centered                          |
+| Resource centered            | IAM Users centered                     |
 | Tracks resources performance | Tracks IAM users activity on API calls |
 | 1-5 minutes period           | 15 minutes                             |
 
