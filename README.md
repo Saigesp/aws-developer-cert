@@ -73,16 +73,11 @@ Preparing for and attaining this certification will showcase:
 
 - RDS.
 - Direct Connect.
-- Elasticsearch Service (ES).
 - EKS.
 - CodeArtifact.
 - CodeGuru.
 - CodeStar.
 - Fault Injection Simulator.
-- EventBridge.
-- SNS.
-- SQS.
-- Step Functions.
 - Secrets Manager.
 - AppSync.
 - AWS Config.
