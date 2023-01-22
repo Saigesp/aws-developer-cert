@@ -34,7 +34,7 @@ Preparing for and attaining this certification will showcase:
     - [Glacier](S3.md#storage-classes)
 - Database
     - [Redshift](Redshift.md)
-    - [RDS](RDS.md)
+    - RDS
     - [DynamoDB](DynamoDB.md)
     - [ElastiCache](ElastiCache.md)
 - CI/CD
@@ -71,7 +71,6 @@ Preparing for and attaining this certification will showcase:
 
 ## Por completar
 
-- RDS.
 - Direct Connect.
 - EKS.
 - CodeArtifact.
