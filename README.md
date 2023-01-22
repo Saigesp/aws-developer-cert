@@ -67,6 +67,7 @@ Preparing for and attaining this certification will showcase:
     - EventBridge
     - [SNS](SNS.md)
     - [SQS](SQS.md)
+    - [SWF](SWF.md)
     - Step Functions
 
 ## Por completar
