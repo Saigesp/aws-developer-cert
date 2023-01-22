@@ -61,12 +61,12 @@ Preparing for and attaining this certification will showcase:
     - [X-Ray](XRay.md)
 - Analytics
     - [Kinesis](Kinesis.md)
-    - ES.
+    - ES
 - Integration
-    - EventBridge.
-    - SNS.
-    - SQS.
-    - Step Functions.
+    - EventBridge
+    - SNS
+    - SQS
+    - Step Functions
 
 ## Por completar
 
