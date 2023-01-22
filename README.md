@@ -65,8 +65,8 @@ Preparing for and attaining this certification will showcase:
     - ES
 - Integration
     - EventBridge
-    - SNS
-    - SQS
+    - [SNS](SNS.md)
+    - [SQS](SQS.md)
     - Step Functions
 
 ## Por completar
