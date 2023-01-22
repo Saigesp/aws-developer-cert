@@ -36,6 +36,7 @@ Preparing for and attaining this certification will showcase:
     - [Redshift](Redshift.md)
     - [RDS](RDS.md)
     - [DynamoDB](DynamoDB.md)
+    - [ElastiCache](ElastiCache.md)
 - CI/CD
     - [CodeCommit](CodeCommit.md)
     - [CodeBuild](CodeBuild.md)
