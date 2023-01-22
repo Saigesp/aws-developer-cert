@@ -8,7 +8,15 @@ You can also create metrics alarms to send notifications or automatically make c
 
 Is often used alongside with [CloudTrail](CloudTrail.md), which monitors the calls made to CloudWatch API for your account. When CloudTrail logging is turned on, CloudWatch writes log files to the [S3](S3.md) bucket that you specified.
 
-#### How it works
+## CloudWatch vs CloudTrail
+
+| CloudWatch                   | CloudTrail                             |
+| ---------------------------- | -------------------------------------- |
+| Resource centered            | IAM Users centered                     |
+| Tracks resources performance | Tracks IAM users activity on API calls |
+| 1-5 minutes period           | 15 minutes                             |
+
+## How it works
 
 CloudWatch is basically a metrics repository. An AWS service (such as EC2) puts metrics into the repository, and you retrieve statistics based on those metrics.
 
