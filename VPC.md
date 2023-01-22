@@ -107,11 +107,11 @@ To create a flow log, you specify:
     - A VPC.
     - A subnet.
     - A network interface. Examples:
-        - Elastic Load Balancing.
-        - Amazon RDS.
-        - Amazon ElastiCache.
-        - Amazon Redshift.
-        - Amazon WorkSpaces.
+        - [ELB](ELB.md).
+        - [RDS](RDS.md).
+        - [ElastiCache](ElastiCache.md).
+        - [Redshift](Redshift.md).
+        - WorkSpaces.
         - NAT gateways.
         - Transit gateways.
 - The type of traffic to capture:
@@ -119,9 +119,9 @@ To create a flow log, you specify:
     - Rejected.
     - All.
 - The destinations to which you want to publish the flow log data:
-    - Amazon CloudWatch Logs.
-    - Amazon S3.
-    - Amazon Kinesis Data Firehose.
+    - Amazon [CloudWatch](CloudWatch.md) Logs.
+    - Amazon [S3](S3.md).
+    - Amazon [Kinesis](Kinesis.md) Data Firehose.
 
 #### Notes:
 - Flow logs do not capture real-time log streams for your network interfaces.
@@ -162,7 +162,7 @@ Direct Connect lets you establish 1 Gbps or 10 Gbps dedicated network connection
 
 You can also work with your provider to create sub-1G connection or use link aggregation group (LAG) to aggregate multiple 1 gigabit or 10 gigabit connections at a single AWS Direct Connect endpoint, allowing you to treat them as a single, managed connection.
 
-### LAG - Link aggregation groups
+### LAG - Link Aggregation Groups
 
 A link aggregation group (LAG) is a logical interface that uses the Link Aggregation Control Protocol (LACP) to aggregate multiple connections at a single AWS Direct Connect endpoint, allowing you to treat them as a single, managed connection.
 
