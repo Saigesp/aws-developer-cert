@@ -1,10 +1,10 @@
 # AWS Aurora
 
-Fully managed relational database engine that's compatible with MySQL and PostgreSQL
+Fully managed relational database engine compatible with MySQL and PostgreSQL.
 
-2 copies of data are kept in each AZ with a minimum of 3 AZ’s (6 copies).
-
-Can handle the loss of up to 2 copies of data without affecting DB write availability and up to 3 copies without affecting read availability.
+### Notes
+- 2 copies of data are kept in each AZ with a minimum of 3 AZ’s (6 copies).
+- Can handle the loss of up to 2 copies of data without affecting DB write availability and up to 3 copies without affecting read availability.
 
 ## Replication types
 

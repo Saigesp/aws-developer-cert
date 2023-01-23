@@ -35,7 +35,8 @@ aws s3 ls s3://<bucket-name>/<folder> --recursive --summarize --human-readable
 
 ### Create a deployment
 ```sh
-aws apigateway create-deployment --region <region> \
+aws apigateway create-deployment
+    --region <region> \
     --rest-api-id <id>
 ```
 > The API is not callable until you associate this deployment with a stage.
@@ -46,8 +47,49 @@ Extra parameters:
 
 ### Associate deployment with a stage
 ```sh
-aws apigateway update-stage --region <region> \
+aws apigateway update-stage
+    --region <region> \
     --rest-api-id <id> \ 
     --stage-name <name> \ 
     --patch-operations op='replace',path='/deploymentId',value='<deployment-id>'
+```
+
+## DynamoDB
+
+### Create a table
+```sh
+aws dynamodb create-table \
+    --table-name Music \
+    --attribute-definitions \
+        AttributeName=Artist,AttributeType=S \
+        AttributeName=SongTitle,AttributeType=S \
+    --key-schema \
+        AttributeName=Artist,KeyType=HASH \
+        AttributeName=SongTitle,KeyType=RANGE \
+    --provisioned-throughput \
+        ReadCapacityUnits=5,WriteCapacityUnits=5 \
+    --table-class STANDARD
+```
+
+### Read
+```sh
+aws dynamodb get-item \
+    --table-name <name> \
+    --key '{ ...filters}'
+```
+
+### Create
+```sh
+aws dynamodb put-item \
+    --table-name <name>  \
+    --item "{...data}"
+```
+
+### Update
+```sh
+aws dynamodb update-item \
+    --table-name <name> \
+    --key '{...filters}' \
+    --update-expression "SET <field> = :newval" \
+    --expression-attribute-values '{...data}' \
 ```
