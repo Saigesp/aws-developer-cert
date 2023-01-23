@@ -61,3 +61,7 @@ There are two types of consumers that you can develop:
 Amazon Kinesis Data Streams can automatically encrypt sensitive data as a producer enters it into a stream with [KMS](KMS.md) master keys.
 
 To read from or write to an encrypted stream, producer and consumer applications must have permission to access the master key.
+
+## Kinesis Producer Library (KPL)
+
+Interface that enables you to quickly achieve high producer throughput with minimal client resources.

@@ -70,6 +70,7 @@ Preparing for and attaining this certification will showcase:
     - EventBridge
     - [SNS](SNS.md)
     - [SQS](SQS.md)
+    - SES
     - [SWF](SWF.md)
     - [Step Functions](StepFunctions.md)
 
@@ -89,6 +90,8 @@ Preparing for and attaining this certification will showcase:
     - Securely encrypt, store, and retrieve credentials for your databases and other services.
 - **AppSync**
     - Managed GraphQL service.
+- **Amplify**
+    - Managed mobile backend & simple framework for iOS, Android, Web, and React Native.
 - **Config**
     - Detailed view of the resources associated with your AWS account.
 - **Elastic File System**
@@ -96,8 +99,7 @@ Preparing for and attaining this certification will showcase:
 - **Data Pipeline**
     - Automate the movement and transformation of data.
 - **Inspector**
-- **Systems Manager Agent**
-- **SES**
+- **SSM Agent (Systems Manager Agent)**
 
 
 ## A repasar
