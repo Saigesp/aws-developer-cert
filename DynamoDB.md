@@ -86,6 +86,12 @@ Ex: You want to read 420 items of 5KB each every minute using strong consistency
 - Multiply items per second and RCU needed per item.
     - 2*7 = 14 Total RCU required.
 
+## Pricing
+
+If you create a table and request 10 units of write capacity and 200 units of read capacity of provisioned throughput, you would be charged:
+
+(10 x $0.01) + ((200 / 50) x $0.01) = $0.05 per hour
+
 ## DynamoDB Streams
 
 Optional feature thath captures a time-ordered sequence of item-level modifications in any DynamoDB table and stores them encrypted in a log for up to 24 hours.

@@ -123,3 +123,5 @@ Preparing for and attaining this certification will showcase:
 - DynamoDB DAX Item Cache: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.html#DAX.concepts.item-cache
 - DynamoDB Query: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Query.html
 - DynamoDB save large objects on S3: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-use-s3-too.html
+
+- Cloud Formation templates
