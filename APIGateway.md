@@ -1,53 +1,106 @@
 # AWS API Gateway
 
-AWS service for creating, publishing, maintaining, monitoring, and securing REST, HTTP, and WebSocket APIs at any scale.
+REST, HTTP, and WebSocket APIs service.
 
-Creates an API endpoint {api-id}.execute-api.{region}.amazonaws.com
-
-API Gateway creates RESTful APIs that:
-- Are HTTP-based.
-- Enable stateless client-server communication.
-- Implement standard HTTP methods such as GET, POST, PUT, PATCH, and DELETE.
-
-API Gateway creates WebSocket APIs that:
-- Adhere to the WebSocket protocol, which enables stateful, full-duplex communication between client and server.
-- Route incoming messages based on message content.
-
-Amazon API Gateway offers features such as the following:
-- Auth mechanisms, such as [IAM policies](IAM.md#policies), [Lambda](Lambda.md) authorizer functions, and [Amazon Cognito](Cognito.md) user pools.
-- [CloudTrail](CloudTrail.md) logging and monitoring of API usage and API changes.
-- [CloudWatch](CloudWatch.md) access logging and execution logging, including the ability to set alarms.
-- Ability to use AWS [CloudFormation](CloudFormation.md) templates to enable API creation.
+#### Main features:
 - Support for custom domain names.
-- Integration with [AWS WAF](WAF.md) for protecting your APIs against common web exploits.
-- Integration with [AWS X-Ray](XRay.md) for understanding and triaging performance latencies.
+- Auth mechanisms:
+    - [IAM policies](IAM.md#policies).
+    - [Lambda](Lambda.md) authorizer functions.
+    - [Amazon Cognito](Cognito.md) user pools.
+- [CloudWatch](CloudWatch.md), [CloudTrail](CloudTrail.md) and [X-Ray](XRay.md) integration.
+- Can be used on [CloudFormation](CloudFormation.md).
+- [WAF](WAF.md) integration.
+
+#### RESTful APIs:
+- HTTP-based.
+- Enable stateless client-server communication.
+- Standard HTTP methods (GET, POST, PUT, PATCH, and DELETE).
+
+#### WebSocket APIs:
+- Adhere to the WebSocket protocol.
+- Stateful, full-duplex communication.
+- Route incoming messages based on message content.
 
 #### Types of endpoints
 - Edge-optimized API endpoint.
-- Private API endpoint.
+    - Default. Best for geographically distributed clients.
 - Regional API endpoint.
+    - Intended for clients in the same region
+- Private API endpoint.
+    - Can only be accessed from [VPC](VPC.md)
 
-## Canary release
+## Endpoint
 
-Canary release is a software development strategy in which a new version of an API is deployed for testing purposes, and the base version remains deployed as a production release for normal operations on the same stage.
+With default domain name: `http://{api-id}.execute-api.{region}.amazonaws.com/`
 
-In a canary release deployment, total API traffic is separated at random into a production release and a canary release with a pre-configured ratio.
+With custom name: `http://{example.com}/`
 
-## Linear release
+With stage variable: `http://example.com/${stageVariables.v2}/bar`
 
-With the Canary Deployment Preference type, Traffic is shifted in two intervals. With **Canary10Percent5Minutes**, 10 percent of traffic is shifted in the first interval while remaining all traffic is shifted after 5 minutes. **Linear10PercentEvery5Minute** will add 10 percent traffic linearly to the new version every 5 minutes. So, after 50 minutes all traffic will be shifted to the new version.
+## Stages
+
+A stage is a reference to a state of your API (dev, v2, etc).
+
+### Stage variables
+
+Stage variables are key-value pairs that act like environment variables and can be used in your setup.
+
+You can use a stage variable as part of an HTTP integration URI:
+
+- A full URI without protocol
+    - Variable value: `example.com/lorem`
+    - Example: `${stageVariables.<name>}`
+- A full domain
+    - Variable value: `example.com`
+    - Example: `${stageVariables.<name>}/resource/operation`
+- A subdomain
+    - Variable value: `mysubdomain`
+    - Example: `${stageVariables.<name>}.example.com/resource/operation`
+- A path
+    - Variable value: `api/v1`
+    - Example: `example.com/${stageVariables.<name>}/bar`
+- A query string
+    - Variable value: `lorem`
+    - Example: `example.com/foo?q=${stageVariables.<name>}`
+
+## API Deployments & releases
+
+A deployment is a snapshot of your API configuration. After you deploy an API to a stage, it’s available for clients to invoke.
+
+You **must redeploy an API** for changes to take effect.
+
+### Canary release
+
+A new version of an API is deployed (base version remains) and traffic is splitted at random into both releases with a pre-configured ratio.
+
+### Linear release
+
+A new version of an API is deployed (base version remains) and traffic is splitted linearly. Example: **Linear10PercentEvery5Minute** will add 10 percent traffic linearly to the new version every 5 minutes (after 50 minutes all traffic will be shifted to the new version).
 
 ## CORS
 
-When using a proxy integration with Lambda, it is necessary to add “Access-Control-Allow-Headers” and “Access-Control-Allow-Origin” headers the response in the Lambda function as a proxy integration will not return an integration response.
+Disabled CORS is one of the common mistakes in configuration. CORS always use the following headers:
+- "Access-Control-Allow-Headers"
+- "Access-Control-Allow-Origin"
 
-Steps:
-- Enable CORS.
-- Setup the OPTIONS method and set up the required OPTIONS response headers.
-- Make changes to your backend to return “Access-Control-Allow-Headers” and “Access-Control-Allow-Origin” headers.
+When using Javascript to call API Gateway, ensure that CORS is enabled and both headers are being passed.
+
+When using a proxy integration with Lambda, ensure that both headers are present in the Lambda function response.
 
 ## Cache
 
-A client of your API can invalidate an existing cache entry from the endpoint for individual requests. The client must send a request that contains the `Cache-Control: max-age=0` header. The client receives the response directly from the integration endpoint instead of the cache, provided that the client is authorized to do so. This replaces the existing cache entry with the new response, which is fetched from the integration endpoint.
+Caching can be enabled for API Gateway. It's done at **stage level** and only GET methods have caching enabled by default.
 
-To invalidate this, you have to impose **InvalidateCache** policy or you can check the **Require authorization** checkbox.
+The default TTL is 300 seconds, and the maximun is 3600 seconds.
+
+Caching is charged by the hour based on the selected cache size.
+
+### Disable-cache at client-side
+
+The client must use the header `Cache-Control: max-age=0` (if policy allows it).
+
+### Invalidate disable-cache at client-side
+
+- Impose **InvalidateCache** policy.
+- Check the **Require authorization** checkbox in the console.
