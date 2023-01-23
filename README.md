@@ -36,6 +36,7 @@ Preparing for and attaining this certification will showcase:
 - Database
     - [Redshift](Redshift.md)
     - [RDS](RDS.md)
+    - [Aurora](Aurora.md)
     - [DynamoDB](DynamoDB.md)
     - [ElastiCache](ElastiCache.md)
 - CI/CD

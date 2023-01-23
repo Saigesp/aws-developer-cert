@@ -8,6 +8,12 @@ You create a template that describes all the AWS resources that you want, and Cl
 
 JSON or YAML file that contains all the configuration details of the AWS resources to be provisioned (stack).
 
+### Template vs SAM (Serverless Application Model)
+
+SAM uses CloudFormation as the underlying deployment mechanism, so you can imagine SAM as an extended form of CloudFormation. SAM makes Serverless/Lambda deployments easier.
+
+CloudFormation can deploy lambda scripts using inline scripts but it has a limitation of 4096 characters and you cannot pack custom dependencies, python libraries, etc, so to make Lambda/Serverless deployments easy SAM is used.
+
 ### Common sections
 - Format version
 - Description
