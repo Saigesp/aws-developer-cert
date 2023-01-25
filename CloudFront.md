@@ -6,4 +6,22 @@ CloudFront delivers your content through a worldwide network of data centers cal
 
 #### How it works:
 - If the content is already in the edge location with the lowest latency, CloudFront delivers it immediately.
-- If the content is not in that edge location, CloudFront retrieves it from the origin and stored it for future requests.
+- If the content is not in that edge location, CloudFront retrieves it from the origin and stored it for future requests (for 24H defaultly).
+
+## Edge locations
+
+### Regional Edge Cache
+
+The regional edge caches are located between your origin web server and the global edge locations that serve content directly to your viewers.
+
+It's enabled by default.
+
+### Geo Restriction
+
+You can specify a list of allowed countries from which your users can access your content.
+
+It has a 99.8% accuracy.
+
+### remove an item from edge location
+
+Use the Invalidation API or wait the item to expire.

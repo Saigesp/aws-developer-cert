@@ -2,7 +2,7 @@
 
 Service to manage and scale a distributed in-memory data store or cache environment in the cloud.
 
-Supports:
+#### Supports:
 - Memcached
     - Does not support AZ.
     - Supports multithreaded performance using multiple cores.
@@ -10,6 +10,7 @@ Supports:
 - Redis
     - Supports AZ.
     - Supports Backups and restore.
+    - Allows startup with pre-loaded data.
 
 ## Clusters
 

@@ -21,8 +21,27 @@ namespace: aws:ec2:vpc
     value: vpc-170647c
 ```
 
-## Inmutable deployments
+## Deployment Strategies
 
-Immutable deployments perform a immutable update to launch a full set of new instances running the new version of the application in a separate Auto Scaling group, alongside the instances running the old version. Immutable deployments can prevent issues caused by partially completed rolling deployments.
+- **All-at-Once**
+    - Performs in place deployment on all instances.
+- **Rolling**
+    - Splits the instances into batches and deploys to one batch at a time.
+- **Rolling with additional batch**.
+    - Splits the deployments into batches but for the first batch creates new EC2 instances instead of deploying on the existing EC2 instances.
+- **Immutable**
+    - If you need to deploy with a new instance instead of using an existing instance.
+    - If the new instances don't pass health checks, Elastic Beanstalk terminates them, leaving the original instances untouched.
+- **Traffic Splitting**
+    - Performs immutable deployment and then forwards percentage of traffic to the new instances for a pre-determined duration of time. If the instances stay healthy, then forward all traffic to new instances and shut down old instances.
 
-If the new instances don't pass health checks, Elastic Beanstalk terminates them, leaving the original instances untouched.
+### Deployment Strategies Matrix
+
+| Strategy    | ECS | Lambda | EC2/On-Premise |
+| ----------- | --- | ------ | -------------- |
+| All-at-Once | ✅  |   ✅   |      ❌        |
+| In-Place    | ✅  |   ✅   |      ✅        |
+| Blue/Green  | ✅  |   ✅   |   Only EC2     |
+| Canary      | ✅  |   ✅   |      ❌        |
+| Linear      | ✅  |   ✅   |      ❌        |
+
