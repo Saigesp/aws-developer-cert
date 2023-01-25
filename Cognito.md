@@ -41,9 +41,15 @@ Notes:
 - When a user has not configured it, he/she receives a one-time access token that your app can use to activate TOTP MFA for the user.
 - If your users have set up TOTP, they can use it for MFA even if you deactivate TOTP later.
 
-## Identity pools (federated identities)
+## Identity pools
 
 Enables users to obtain temporary, limited-privilege AWS credentials to access other AWS services.
+
+## Federated Identities
+
+Web service that delivers scoped temporary credentials to mobile devices and other **untrusted** environments.
+
+It uniquely identifies a device and supplies the user with a consistent identity over the lifetime of an application.
 
 ## Cognito Sync
 

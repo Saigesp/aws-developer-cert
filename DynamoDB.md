@@ -114,6 +114,27 @@ Can be sequential (default) or parallel.
     - Segment: A segment to be scanned by a particular worker (must be different).
     - TotalSegments: The total number of segments (same as number of workers).
 
+## Updates
+
+To manipulate data you use the `PutItem`, `UpdateItem`, and `DeleteItem`.
+
+### Condition expressions
+
+You can specify a condition expression to determine which items should be created, modified or deleted.
+
+If the condition expression evaluates to true, the operation succeeds; otherwise, the operation fails.
+
+```sh
+aws dynamodb delete-item \
+    --table-name ProductCatalog \
+    --key '{"Id":{"N":"456"}}' \
+    --condition-expression "(ProductCategory IN (:cat1, :cat2))" \
+    --expression-attribute-values '{
+        ":cat1": {"S": "Sporting"},
+        ":cat2": {"S": "Gardening"}
+    }'
+```
+
 ## DynamoDB Streams
 
 Optional feature that captures items modifications:

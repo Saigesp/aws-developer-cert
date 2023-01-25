@@ -83,6 +83,17 @@ Accepts the HTTP/HTTPS traffic from clients.
 - Supports SSL.
 - Cross-Zone Load Balancing is always enabled.
 
+### Sticky sessions
+
+Bind the user's session to a specific target (all requests from the user during the session are sent to the same target).
+
+Notes:
+- Useful for servers that maintain state information.
+- The client must support cookies.
+- It supports **duration-based cookies** and **application-based cookies**.
+- Not supported if cross-zone load balancing is disabled.
+- WebSocket connections are inherently sticky.
+
 ## NLB - Network Load Balancer
 
 Accepts the TCP traffic from clients.

@@ -289,3 +289,12 @@ With EC2 Instance Connect, you use [AWS (IAM)](IAM.md) policies and principals t
 ### Notes
 - All connection requests using EC2 Instance Connect are logged to AWS CloudTrail
 - For EC2 instance with the latest Linux OS, EC2 instance Connect is preconfigured & no additional setup is required.
+
+## EC2 instance profiles
+
+The instance profile contains the role and can provide the role's temporary credentials to an application that runs on the instance.
+
+Notes
+- **Only one role can be assigned to an instance at a time**
+- **All applications on the instance share the same role** and permissions.
+- Instance profiles are creating automatically if you use the console to create a role for EC2, but if you manage your roles from the [CLI](CLI.md) or the AWS API, you need to create roles and instance profiles as separate actions.
