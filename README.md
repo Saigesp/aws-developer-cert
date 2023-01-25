@@ -53,6 +53,7 @@ Preparing for and attaining this certification will showcase:
     - ⚡ [VPC](VPC.md)
     - ⚡ [CloudFront](CloudFront.md)
     - ⚡ [Route 53](Route53.md)
+    - ⚡ [Direct Connect](DirectConnect.md)
 - Security, Identity & Compliance
     - ⚡ [IAM](IAM.md)
     - ⚡ [Cognito](Cognito.md)
@@ -79,8 +80,6 @@ Preparing for and attaining this certification will showcase:
 
 ## Secondary services
 
-- **Direct Connect**
-    - Links your internal network to an AWS Direct Connect location over ethernet.
 - **EKS**
     - Managed service to run Kubernetes.
 - **CodeArtifact**

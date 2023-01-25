@@ -21,6 +21,14 @@ Each shard can support:
 
 If your data rate increases, you can increase or decrease the number of shards allocated to your stream.
 
+### Shard Iterator
+
+A shard iterator specifies the shard position from which to start reading data records sequentially.
+
+A new shard iterator is returned by every GetRecords request (as `NextShardIterator`), which you then use in the next GetRecords request (as `ShardIterator`).
+
+If you are getting `ProvisionedThroughputExceededException` error messages, try to increase the number of shards in the data stream and specify a shard iterator.
+
 ## Data Record
 
 A data record is the unit of data stored, composed of:
@@ -65,3 +73,13 @@ To read from or write to an encrypted stream, producer and consumer applications
 ## Kinesis Producer Library (KPL)
 
 Interface that enables you to quickly achieve high producer throughput with minimal client resources.
+
+## Common troubleshooting
+
+- Some records are skipped when using the client library.
+    - Problem: An unhandled exception thrown from `processRecords`.
+    - Solution: Handle all exceptions within `processRecords` appropriately.
+- Records belonging to the same shard are processed by different processors at the same time.
+    - Problem: A worker instance that loses network connectivity.
+    - Solution: When a `ShutdownException` raises, exit the current method cleanly.
+- [More here](https://docs.aws.amazon.com/streams/latest/dev/troubleshooting-consumers.html)

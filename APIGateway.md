@@ -78,6 +78,14 @@ A new version of an API is deployed (base version remains) and traffic is splitt
 
 A new version of an API is deployed (base version remains) and traffic is splitted linearly. Example: **Linear10PercentEvery5Minute** will add 10 percent traffic linearly to the new version every 5 minutes (after 50 minutes all traffic will be shifted to the new version).
 
+## Authentication
+
+Users can authenticate with [Lambda](Lambda.md) authorizers, or [Cognito](Cognito.md) authorizers.
+
+#### Cognito authorizer vs Lambda Authorizer:
+- Use [Lambda](Lambda.md) authorizer if you need custom IAM roles or own logic.
+- Use cognito authorizer if you need to authenticate and authorize using Oauth.
+
 ## CORS
 
 Disabled CORS is one of the common mistakes in configuration. CORS always use the following headers:

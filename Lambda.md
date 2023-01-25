@@ -48,6 +48,24 @@ Pair of key-value string stored in a function's **version-specific** configurati
 
 To configure encryption for your environment variables use [KMS](KMS.md)
 
+## Lambda authorizer
+
+It's an alternative to using [IAM roles](IAM.md) or [Cognito](Cognito.md) authorizers.
+
+You can use it to authenticate users in [API Gateway](APIGateway.md), and the authentication data can be stored on [DynamoDB](DynamoDB.md).
+
+Two types:
+- **Token-based**
+    - Receives the caller's identity in a bearer token or an OAuth token.
+- **Request parameter**
+    - Receives the caller's identity in a combination of headers, query string parameters, stageVariables, and $context variables.
+
+> For WebSocket APIs, only request parameter-based authorizers are supported.
+
+#### Cognito authorizer vs Lambda Authorizer:
+- Use [Lambda](Lambda.md) authorizer if you need custom IAM roles or own logic.
+- Use cognito authorizer if you need to authenticate and authorize using Oauth.
+
 ## Lambda@Edge
 
 Lambda@Edge is a compute service that lets you execute functions that customize the content that [CloudFront](CloudFront.md) delivers. You can author functions in one region and execute them in AWS locations globally closer to the viewer, without provisioning or managing servers.

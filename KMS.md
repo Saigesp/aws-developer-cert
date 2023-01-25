@@ -46,24 +46,6 @@ The KMS keys that you create are **customer managed keys**. KMS keys that AWS se
 | AWS managed      | Yes | No  | Yes | Required & Yearly | Per-use fee |
 | AWS owned        | No  | No  | No  | Varies            | No fees     |
 
-## Data keys
-
-Data keys are symmetric keys you can use to encrypt data, including large amounts of data and other data encryption keys. Unlike symmetric KMS keys, data keys are returned to you for use outside of KMS.
-
-When KMS generates data keys, it returns a plaintext data key for immediate use and an encrypted copy of the data key that you can safely store with the data. When you are ready to decrypt the data, you first ask KMS to decrypt the encrypted data key.
-
-KMS does not store, manage, or track your data keys, or perform cryptographic operations with data keys.
-
-### Envelope encryption
-
-Envelope encryption is the practice of encrypting plaintext data with a data key, and then encrypting the data key under another key.
-
-The top-level encryption key is known as the root key.
-
-## Data key pairs
-
-Data key pairs are asymmetric data keys consisting of a mathematically-related public key and private key. They are designed for use in client-side encryption and decryption or signing and verification outside of AWS KMS.
-
 ## Key spec
 
 Key spec is a property that represents the cryptographic configuration of a key.
@@ -78,6 +60,14 @@ Key spec is a property that represents the cryptographic configuration of a key.
 - Data keys pairs
     - The spec determines the type of key material in the data key pair.
 
+## Data keys
+
+Data keys are symmetric keys you can use to encrypt data, including large amounts of data and other data encryption keys. Unlike symmetric KMS keys, data keys are returned to you for use outside of KMS.
+
+When KMS generates data keys, it returns a plaintext data key for immediate use and an encrypted copy of the data key that you can safely store with the data. When you are ready to decrypt the data, you first ask KMS to decrypt the encrypted data key.
+
+KMS does not store, manage, or track your data keys, or perform cryptographic operations with data keys.
+
 ### Key usage
 
 Key usage is a property that determines the cryptographic operations the key supports:
@@ -87,9 +77,37 @@ Key usage is a property that determines the cryptographic operations the key sup
 
 Each KMS key can have only one key usage.
 
+### Envelope encryption
+
+Envelope encryption is the practice of encrypting plaintext data with a data key, and then encrypting the data key under another key.
+
+The top-level encryption key is known as the root key.
+
+## Data key pairs
+
+Data key pairs are asymmetric data keys consisting of a mathematically-related public key and private key. They are designed for use in client-side encryption and decryption or signing and verification outside of AWS KMS.
+
 ## Data key caching
 
 Data key caching can improve performance, reduce cost, and help you stay within service limits as your application scales.
 
 #### How it works
 Data key caching stores data keys and related cryptographic material in a cache. When you encrypt or decrypt data, the AWS Encryption SDK looks for a matching data key in the cache. If it finds a match, it uses the cached data key rather than generating a new one.
+
+## KMS Actions
+
+Most common & asked actions are:
+
+- **CreateKey**.
+    - Creates a unique customer managed KMS key in your AWS account and Region.
+- **GenerateDataKey**
+    - Returns a plaintext data key and encrypted data key (the same data key).
+    - You can use the plaintext key to encrypt your data and store the encrypted data key with the encrypted data.
+- **GenerateDataKeyWithoutPlaintext**.
+    - Returns a encrypted data key.
+    - Useful to encrypt data not immediately (Then you decrypt the data key with Decrypt action)
+- **Encrypt**.
+    - Encrypts data of up to 4 KB.
+    - Record the key and algorithms used!.
+- **Decrypt**.
+    - Decrypts ciphertext that was encrypted by a KMS.

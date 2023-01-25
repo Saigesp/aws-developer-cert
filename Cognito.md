@@ -31,7 +31,7 @@ Notes:
 - SMS for MFA is charged separately (There is no charge for sending verification codes to email addresses).
 - When a user successfully goes through the SMS text message MFA flow, their phone number is also marked as verified.
 
-#### TOTP software token MFA
+#### TOTP (Time-based one-time password) MFA
 
 When you set up TOTP software token MFA in your user pool, your user signs in with a user name and password, then uses a TOTP to complete authentication.
 
@@ -56,3 +56,13 @@ It uniquely identifies a device and supplies the user with a consistent identity
 Service and client library that makes it possible to sync application-related user data across devices.
 
 Amazon Cognito Sync can synchronize user profile data across mobile devices and the web without using your own backend.
+
+## Cognito authorizer
+
+It's an alternative to using [IAM roles](IAM.md) or [Lambda](Lambda.md) authorizers.
+
+You can use it to authenticate users in [API Gateway](APIGateway.md), and the authentication data can be stored on [DynamoDB](DynamoDB.md).
+
+#### Cognito authorizer vs Lambda Authorizer:
+- Use [Lambda](Lambda.md) authorizer if you need custom IAM roles or own logic.
+- Use cognito authorizer if you need to authenticate and authorize using Oauth.
