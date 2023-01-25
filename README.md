@@ -118,7 +118,4 @@ Preparing for and attaining this certification will showcase:
 
 - Lambda FAQS: https://aws.amazon.com/lambda/faqs/
 
-- S3 Encryption: https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingServerSideEncryption.html
-- S3 Multipart upload: https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html
-
 - Cloud Formation templates

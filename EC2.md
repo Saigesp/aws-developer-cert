@@ -14,10 +14,10 @@ An AMI (Amazon Machine Image) is a required template (image) that contains the s
 
 - Virtualization types:
     - **HVM (Hardware-Assisted Virtual Machine)**: Best performance.
-    - **Paravirtualization**: 
+    - **Paravirtualization**
 - Root Device Type:
-    - **EBS (Elastic Block Storage)**: 
-    - **Instance Store**: 
+    - **EBS (Elastic Block Storage)**
+    - **Instance Store**
 - By purpose:
     - **General purpose**: Code (t-).
     - **Compute optimized**: Code (c-).
