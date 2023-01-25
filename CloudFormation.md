@@ -19,11 +19,38 @@ JSON or YAML file that contains all the configuration details of the AWS resourc
 - Transforms
 - Outputs
 
-### Template vs SAM (Serverless Application Model)
+### CloudFormation vs SAM (Serverless Application Model)
 
-SAM uses CloudFormation as the underlying deployment mechanism, so you can imagine SAM as an extended form of CloudFormation. SAM makes Serverless/Lambda deployments easier.
+[SAM](SAM.md) uses CloudFormation as the underlying deployment mechanism, so you can imagine [SAM](SAM.md) as an extended form of CloudFormation. SAM makes Serverless/Lambda deployments easier.
 
-CloudFormation can deploy lambda scripts using inline scripts but it has a limitation of 4096 characters and you cannot pack custom dependencies, python libraries, etc, so to make Lambda/Serverless deployments easy SAM is used.
+CloudFormation can deploy lambda scripts using inline scripts but it has a limitation of 4096 characters and you cannot pack custom dependencies, python libraries, etc, so to make Lambda/Serverless deployments easy [SAM](SAM.md) is used.
+
+## Template
+
+A template is a JSON- or YAML-formatted text file that describes your AWS infrastructure.
+
+### Template sections
+
+- **Resources** (required).
+    - Stack resources and their properties.
+- **Format Version** (optional).
+    - The version that the template conforms to.
+- **Description** (optional).
+- **Metadata** (optional).
+    - Objects that provide additional information about the template.
+- **Parameters** (optional).
+    - Values to pass to your template at runtime. You can refer them from Resources and Outputs.
+- **Rules** (optional).
+    - Validates a parameter or a combination to a template during stack creation or update.
+- **Mappings** (optional).
+    - A mapping of keys and associated values that you can use to specify conditional parameter values.
+- **Conditions** (optional).
+    - Conditions that control whether certain resources are created or whether certain resource properties are setted during stack creation or update.
+- **Transform** (optional, required with SAM).
+    - Specifies the version of [SAM](SAM.md) to declare resources in your template.
+    - You can also use `AWS::Include` transforms to work with template snippets that are stored separately in [S3](S3.md).
+- **Outputs** (optional).
+    - Returned values when you view your stack's properties.
 
 ## Stack
 

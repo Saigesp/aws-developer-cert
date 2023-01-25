@@ -61,8 +61,9 @@ Preparing for and attaining this certification will showcase:
 - Management & Governance
     - ⚡ [CloudWatch](CloudWatch.md)
     - ⚡ [CloudTrail](CloudTrail.md)
-    - ⚡ [CloudFormation](CloudFormation.md)
     - ⚡ [X-Ray](XRay.md)
+    - ⚡ [CloudFormation](CloudFormation.md)
+    - [SAM](SAM.md)
     - [Trusted Advisor](TrustedAdvisor.md)
 - Analytics
     - ⚡ [Kinesis](Kinesis.md)
