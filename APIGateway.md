@@ -23,12 +23,28 @@ REST, HTTP, and WebSocket APIs service.
 - Route incoming messages based on message content.
 
 #### Types of endpoints
-- Edge-optimized API endpoint.
+- **Edge-optimized**.
     - Default. Best for geographically distributed clients.
-- Regional API endpoint.
+- **Regional**.
     - Intended for clients in the same region
-- Private API endpoint.
+- **Private**.
     - Can only be accessed from [VPC](VPC.md)
+
+#### Types of integrations
+- **AWS**
+    - Expose AWS service actions.
+    - Request and response has to be configured.
+- **AWS_PROXY**
+    - Integrated with a [Lambda](Lambda.md) function.
+    - No request and response configuration.
+- **HTTP**
+    - Expose HTTP endpoints in the backend.
+    - Request and response has to be configured.
+- **HTTP_PROXY**
+    - Allows a client to access the backend HTTP endpoints.
+    - No request and response configuration.
+- **MOCK**
+    - Return a response without sending the request to the backend.
 
 ## Endpoint
 

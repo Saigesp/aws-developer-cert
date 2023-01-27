@@ -40,11 +40,11 @@ You must manage each multi-Region key independently, including creating aliases 
 
 The KMS keys that you create are **customer managed keys**. KMS keys that AWS services create in your AWS account are **AWS managed keys**. KMS keys that AWS services create in a service account are **AWS owned keys**.
 
-| Type | Can view | Can manage | Used only for my account | Automatic rotation | Pricing |
-| --- | --- | --- | --- | --- | --- |
-| Customer managed | Yes | Yes | Yes | Optional & Yearly | Per-use fee |
-| AWS managed      | Yes | No  | Yes | Required & Yearly | Per-use fee |
-| AWS owned        | No  | No  | No  | Varies            | No fees     |
+| Type             | Can view | Can manage | Used only for my account | Automatic rotation | Pricing     |
+| ---------------- | -------- | ---------- | ------------------------ | ------------------ | -------     |
+| Customer managed | Yes      | Yes        | Yes                      | Optional & Yearly  | Per-use fee |
+| AWS managed      | Yes      | No         | Yes                      | Required & Yearly  | Per-use fee |
+| AWS owned        | No       | No         | No                       | Varies             | No fees     |
 
 ## Key spec
 
@@ -55,9 +55,9 @@ Key spec is a property that represents the cryptographic configuration of a key.
     - It also determines the type of its key material, and the algorithms it supports.
     - You choose the key spec when you create the KMS key, and **you cannot change it**.
     - The default key spec, SYMMETRIC_DEFAULT, represents a 256-bit symmetric encryption key.
-- Data keys
+- **Data keys**
     - The spec determines the length of an AES data key.
-- Data keys pairs
+- **Data keys pairs**
     - The spec determines the type of key material in the data key pair.
 
 ## Data keys
@@ -100,7 +100,7 @@ Most common & asked actions are:
 
 - **CreateKey**.
     - Creates a unique customer managed KMS key in your AWS account and Region.
-- **GenerateDataKey**
+- **GenerateDataKey**.
     - Returns a plaintext data key and encrypted data key (the same data key).
     - You can use the plaintext key to encrypt your data and store the encrypted data key with the encrypted data.
 - **GenerateDataKeyWithoutPlaintext**.
@@ -111,3 +111,7 @@ Most common & asked actions are:
     - Record the key and algorithms used!.
 - **Decrypt**.
     - Decrypts ciphertext that was encrypted by a KMS.
+
+## Key deletion
+
+You can schedule a KMS key deletion with a waiting period from 7 to 30 days.

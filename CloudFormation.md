@@ -59,4 +59,7 @@ Cancelling an update rolls back to the previous configuration.
 
 ## Infraestructure deletion policy
 
-Attribute in the template to specify if a resource should be preserved (Retain), deleted (Delete) or backed-up (Snapshot) when the stack is deleted.
+Attribute in the template to specify what happens when the stack is deleted:
+- Delete: deleted
+- Retain: should be preserved
+- Snapshot: backed-up

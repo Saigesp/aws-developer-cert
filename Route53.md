@@ -70,7 +70,7 @@ If Route 53 cannot localize the origin traffic, it will route the traffic to the
 
 ## Failover Routing Policy
 
-Lets you route traffic to a resource when the resource is healthy or to a different resource when the first resource is unhealthy.
+Lets you route traffic to a resource when is healthy or to a different resource when is not.
 
 Health checks can monitor:
 - The health of a specified resource.

@@ -25,7 +25,7 @@ CloudWatch is basically a metrics repository. An AWS service (such as EC2) puts 
 - **Basic monitoring**
     - Enabled by default.
     - Data available automatically in 5 minutes periods at no charge.
-- **Detailes monitoring**
+- **Details monitoring**
     - Must be specifically enabled at instance level.
     - Data available automatically in 1 minute periods for an additional cost.
 

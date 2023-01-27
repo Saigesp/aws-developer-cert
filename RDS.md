@@ -19,9 +19,9 @@ The DB instance class determines the computation and memory capacity of an Amazo
 ## DB Instance Storage
 
 Amazon RDS provides three storage types:
-- General Purpose SSD (also known as gp2 and gp3).
-- Provisioned IOPS SSD (also known as io1).
-- Magnetic (also known as standard).
+- General Purpose SSD (aka gp2 and gp3).
+- Provisioned IOPS SSD (aka io1).
+- Magnetic (aka standard).
 
 ## Logs
 

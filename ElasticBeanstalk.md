@@ -27,7 +27,7 @@ namespace: aws:ec2:vpc
     - Performs in place deployment on all instances.
 - **Rolling**
     - Splits the instances into batches and deploys to one batch at a time.
-- **Rolling with additional batch**.
+- **Rolling with additional batch**
     - Splits the deployments into batches but for the first batch creates new EC2 instances instead of deploying on the existing EC2 instances.
 - **Immutable**
     - If you need to deploy with a new instance instead of using an existing instance.

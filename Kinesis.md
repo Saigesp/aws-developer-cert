@@ -54,7 +54,7 @@ Determines how capacity is managed and how you are charged for the usage of your
 
 ## Retention Period
 
-The retention period is the length of time that data records are accessible after they are added to the stream
+The default retention period of 24 hours covers scenarios where intermittent lags in processing require catch-up with the real-time data. A seven-day retention lets you reprocess data for up to seven days to resolve potential downstream data losses. Long term data retention greater than seven days and up to 365 days lets you reprocess old data for use cases such as algorithm back testing, data store backfills, and auditing.
 
 ## Streams Application
 
@@ -62,7 +62,11 @@ An Kinesis Data Streams Application is a **consumer** of a stream that commonly 
 
 There are two types of consumers that you can develop:
 - **Shared fan-out**
+    - All share a shard’s 2 MB/s of read throughput and 5 transactions/s.
+    - Requires GetRecords API.
 - **Enhanced fan-out**
+    - Own 2 MB/s read throughput, with multiple consumers reading the same stream.
+    - Requires SubscribeToShard API.
 
 ## Server-Side Encryption
 

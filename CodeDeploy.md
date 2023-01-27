@@ -7,11 +7,11 @@ Deployment service that automates application deployments to [EC2](EC2.md), on-p
 - Instances are selected on CodeDeploy groups by its tags.
 
 #### Deplyment types
-- **In-place deployment**: The application on each instaance is on the deplyment group is stopped, the latest application revision is installed and the new version is started and validated. Supported only on EC2 and On-premises. Configs:
+- **In-place deployment**: The application on each instance is on the deployment group is stopped, the latest application revision is installed and the new version is started and validated. Supported only on EC2 and On-premises. Configs:
     - CodeDeployDefault.AllAtOnce
     - CodeDeployDefault.HalfAtATime
     - CodeDeployDefault.OneAtATime
-- **Blue/Green deplyment**: Provisions new compute platforms and when the deployment is successfully finished it reroutes the traffic from old environment (blue) to the new environment (green). Supported on all platforms.
+- **Blue/Green deployment**: Provisions new compute platforms and when the deployment is successfully finished it reroutes the traffic from old environment (blue) to the new environment (green). Supported on all platforms.
 
 ## Deployment group
 
@@ -81,7 +81,7 @@ Hooks: # These are ONLY the available scripting hooks
   - BeforeBlockTraffic: "..."
   - AfterBlockTraffic: "..."
   - BeforeAllowTraffic: "..."
-  - AfterAllowTraffi: "..."
+  - AfterAllowTraffic: "..."
   - ValidateService: "..."
   # ECS
   - BeforeInstall: "..."

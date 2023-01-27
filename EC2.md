@@ -161,7 +161,7 @@ For instance store-backed instances that could not be automatically recovered, A
 
 1. Launch a replacement instance on a new Dedicated Host from your most recent AMI.
 2. Migrate all of the necessary data to the replacement instance.
-3. Terminate the original instance on the impaired Dedicated Host.</p>
+3. Terminate the original instance on the impaired Dedicated Host.
 
 
 ## Placement Group
@@ -195,7 +195,7 @@ Security Groups are **stateful**: if a port is open for incoming traffic, it is 
 
 ### Important notes
 
-- Security Grouo protects the instance by applying a securitty wall of rules (like a firewall).
+- Security Group protects the instance by applying a security wall of rules (like a firewall).
 - Controls in-and-out traffic.
 - Can be configured using:
     - Request type (TCP, UDP, SSH, HTTP...).

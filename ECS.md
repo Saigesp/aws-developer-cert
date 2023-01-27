@@ -47,14 +47,6 @@ A **container** is a standardized unit of software development that holds everyt
 
 Images are read-only template, typically built from a Dockerfile, from which containers are created.
 
-## Task definitions
-
-A JSON file that describes one or more containers (max 10) that form your application.
-
-It specifies the various parameters for your application. For example, you can use it to specify the operating system parameters, which containers to use, which ports to open, what data volumes to use, etc.
-
-After you create a task definition, you can run the task definition as a task or a service.
-
 ## ECS service
 
 Runs and maintains your desired number of tasks simultaneously in an Amazon ECS cluster.
@@ -65,6 +57,18 @@ If any of your tasks fail or stop for any reason, the Amazon ECS service schedul
 
 #### Notes:
 - If you stop (not terminate) an Amazon ECS container instance, the status remains ACTIVE, but the agent connection status transitions to FALSE within a few minutes.
+
+## Tasks
+
+A task is the instantiation of a task definition within a cluster.
+
+Its a JSON file that describes one or more containers (max 10) that form your application.
+
+### Task definitions
+
+It specifies the various parameters for your application. For example, you can use it to specify the operating system parameters, which containers to use, which ports to open, what data volumes to use, etc.
+
+After you create a task definition, you can run the task definition as a task or a service.
 
 ### Task placement constraints
 
@@ -99,7 +103,3 @@ For tasks running as part of ECS service, the default task placement strategy is
         - instanceId or host (same effect)
         - Any platform or custom attribute that's applied to a container instance, like `attribute:ecs.availability-zone`.
         - Service tasks are spread based on the tasks from that service. Standalone tasks are spread based on the tasks from the same task group.
-
-## Tasks
-
-A task is the instantiation of a task definition within a cluster.

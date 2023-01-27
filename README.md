@@ -116,6 +116,8 @@ Preparing for and attaining this certification will showcase:
 
 - ECS Instances: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_instances.html
 
-- Lambda FAQS: https://aws.amazon.com/lambda/faqs/
+- Lambda lifecycle: https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html
 
-- Cloud Formation templates
+- Step functions error handling: https://docs.aws.amazon.com/step-functions/latest/dg/concepts-error-handling.html
+
+- Kinesis faqs: https://aws.amazon.com/kinesis/data-streams/faqs/

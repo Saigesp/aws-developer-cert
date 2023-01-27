@@ -83,10 +83,8 @@ Lambda@Edge is a compute service that lets you execute functions that customize 
         - Initialize SDK clients and database connections outside of the function handler and cache static assets locally in the `/tmp` directory.
         - Use a keep-alive directive to maintain persistent connections.
 - Function configuration
-    - Security
-        - Use most-restrictive permissions when setting IAM policies
-    - Quotas
-        - Delete Lambda functions that you are no longer using (they count against your deployment package size limit).
+    - Use most-restrictive permissions when setting IAM policies
+    - Delete Lambda functions that you are no longer using (they count against your deployment package size limit).
 - Metrics and alarms
     - Leverage your logging library and Lambda Metrics and Dimensions to catch app errors
     - Use AWS Cost Anomaly Detection to detect unusual activity.
